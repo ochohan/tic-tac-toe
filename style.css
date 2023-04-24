@@ -1,0 +1,38 @@
+body {
+  position: absolute;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+div {
+  height: 150px;
+  width: 150px;
+  shape-outside: border-box;
+  border: 1px solid rgb(196, 196, 196);
+  text-align: center;
+  line-height: 150px;
+  font-size: 70px;
+  color: #e8e8e8;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(215,215,215),
+                 0px 1px 0 rgb(199,199,199),
+                 0px 2px 0 rgb(182,182,182),
+                 0px 3px  0 rgb(165,165,165),
+                 0px 4px 3px rgba(0,0,0,0.17),
+                 0px 4px 1px rgba(0,0,0,0.5),
+                 0px 0px 3px rgba(0,0,0,.2);
+}
+
+
+div{
+  background: rgba(31, 30, 30, 0.43);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(13.7px);
+-webkit-backdrop-filter: blur(13.7px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
