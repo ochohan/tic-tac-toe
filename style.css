@@ -128,10 +128,15 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
+  body {
+    width: 99%;
+    justify-content: center;
+    align-items: center;
+  }
   .second {
     margin: 10px 0;
   }
-  
+
   button {
     padding: 15px 30px;
     border-radius: 28px;
@@ -152,5 +157,6 @@ footer {
     width: 120px;
     text-align: center;
     line-height: 120px;
-    font-size: 50px;}
+    font-size: 50px;
+  }
 }
