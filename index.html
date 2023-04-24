@@ -9,103 +9,33 @@
   </head>
 
   <body>
-    <h1 id="track">Player's turn</h1>
-    <main class="board">
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
+    <header>
+      <h1 id="track">Tic Tac Toe</h1>
+      <h1 class="message"></h1>
+      <h2 class="player1">Player 1</h2>
+      <h2 class="player2">Player 2</h2>
+    </header>
+    <main>
+      <section class="playing"></section>
+      <section class="board">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </section>
+      <section class="second">
+        <button>Restart Game</button>
+      </section>
     </main>
-    <script>
-      let main = document.querySelector(".board");
-      let div = document.querySelectorAll("div");
-      let player = document.querySelector("#track");
+    <footer>
+      <p>Designed by Osama</p>
+    </footer>
 
-      const WINNING_COMBINATIONS = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-      ];
-
-      let gameState = true;
-
-      
-
-      // function checkDraw() {
-      //   for (let x = 0; x < div.length; x++) {
-      //     if (div[x].textContent != "") {
-      //       gameState = false;
-      //       if (gameState)
-      //       continue;
-      //     } else {
-      //       gameState = true;
-      //       break;
-      //     }
-      //   }
-      // }
-
-      function checkWin() {
-        for (let index = 0; index < WINNING_COMBINATIONS.length; index++) {
-          if (
-            div[WINNING_COMBINATIONS[index][0]].textContent === "X" &&
-            div[WINNING_COMBINATIONS[index][1]].textContent === "X" &&
-            div[WINNING_COMBINATIONS[index][2]].textContent === "X"
-          ) {
-            gameState = false;
-            console.log('Player X Won!')
-          }
-          else if (
-            div[WINNING_COMBINATIONS[index][0]].textContent === "O" &&
-            div[WINNING_COMBINATIONS[index][1]].textContent === "O" &&
-            div[WINNING_COMBINATIONS[index][2]].textContent === "O"
-          ) {
-            gameState = false;
-            console.log('Player O Won!')
-          }
-        }
-        
-      }
-
-      
-
-      function myFunction(event) {
-
-        if (event.target.tagName === 'DIV' && gameState === true){
-          if (event.target.textContent != "") {
-          alert("Please click on another box");
-        } else {
-
-          if (player.className === "player1") {
-            player.classList.remove("player1");
-            player.classList.toggle("player2");
-            event.target.textContent = "X";
-          } else {
-            player.classList.remove("player2");
-            player.classList.toggle("player1");
-            event.target.textContent = "O";
-          }
-          
-        }
-
-        } else if (gameState === false){
-          console.log('please restart')
-        }
-        
-        
-        checkWin();
-      }
- 
-      main.addEventListener("click", myFunction);
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>
