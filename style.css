@@ -9,8 +9,7 @@ body {
     ". header ."
     ". main ."
     ". footer .";
-  justify-content: center;
-  align-self: center;
+
   background-image: url("bg-dark.jpg");
   background-size: cover;
   text-align: center;
@@ -20,6 +19,8 @@ header {
   grid-area: header;
   color: aliceblue;
   font-family: cursive;
+  justify-content: center;
+  align-self: center;
 }
 
 main {
@@ -28,6 +29,30 @@ main {
   justify-content: center;
   align-self: center;
   flex-direction: column;
+}
+
+.playing {
+  background: rgba(31, 30, 30, 0.43);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.7px);
+  -webkit-backdrop-filter: blur(13.7px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: max-content;
+  justify-content: center;
+  align-self: center;
+  border-radius: 28px;
+}
+
+.x,
+.o {
+  background-color: aqua;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
 }
 
 .board {
@@ -39,8 +64,10 @@ main {
   gap: 2px 2px;
 }
 
-.second {
+section {
   margin: 20px 0;
+  justify-content: center;
+  align-self: center;
 }
 
 button {
@@ -67,7 +94,7 @@ div {
 }
 
 div,
-button,
+.restart,
 header {
   background: rgba(31, 30, 30, 0.43);
   border-radius: 16px;
@@ -133,8 +160,10 @@ footer {
     justify-content: center;
     align-items: center;
   }
-  .second {
+  section {
     margin: 10px 0;
+    justify-content: center;
+    align-items: center;
   }
 
   button {

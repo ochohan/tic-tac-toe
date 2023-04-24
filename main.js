@@ -1,15 +1,17 @@
 let main = document.querySelector(".board");
 let div = document.querySelectorAll("div");
 let player = document.querySelector("#track");
-let button = document.querySelector("button");
+let button = document.querySelector(".restart");
 
 let message = document.querySelector(".message");
 
 let player1 = document.querySelector(".player1");
 let player2 = document.querySelector(".player2");
-
+let switchx = document.querySelector('#x');
+let switcho = document.querySelector('#o');
 let player1_score = 0;
 let player2_score = 0;
+
 
 const CHECK_COMBO = [
   [0, 1, 2],
@@ -24,6 +26,7 @@ const CHECK_COMBO = [
 
 let gameState = true;
 
+
 function checkDraw() {
   if (
     div[0].textContent != "" &&
@@ -34,9 +37,8 @@ function checkDraw() {
     div[5].textContent != "" &&
     div[6].textContent != "" &&
     div[7].textContent != "" &&
-    div[8].textContent != ""
-  ) {
-    gameState = true;
+    div[8].textContent != "" && gameState === true) {
+    gameState = false;
     message.textContent = "That was a DRAW!";
   }
 }
@@ -62,7 +64,6 @@ function checkWin() {
     ) {
       gameState = false;
       message.textContent = "Player X WON!";
-
       player1_score = player1_score + 1;
       player1.textContent = "Player X scored " + player1_score;
       player2.textContent = "Player O scored " + player2_score;
@@ -82,34 +83,28 @@ function checkWin() {
       div[CHECK_COMBO[index][0]].classList = "animated rubberBand";
       div[CHECK_COMBO[index][1]].classList = "animated rubberBand";
       div[CHECK_COMBO[index][2]].classList = "animated rubberBand";
-    } else if (
-      div[0].textContent !== "" &&
-      div[1].textContent !== "" &&
-      div[2].textContent !== "" &&
-      div[3].textContent !== "" &&
-      div[4].textContent !== "" &&
-      div[5].textContent !== "" &&
-      div[6].textContent !== "" &&
-      div[7].textContent !== "" &&
-      div[8].textContent !== "" &&
-      gameState === true
-    ) {
-      gameState = false;
-      message.textContent = "That was a DRAW!";
+      
     }
+
   }
+  checkDraw();
 }
 
-function myFunction(event) {
+function mainGame(event) {
   if (event.target.tagName === "DIV" && gameState === true) {
     if (event.target.textContent != "") {
       alert("Please click on another box");
     } else {
       if (player.className === "player1") {
+        switchx.classList.remove('x');
+        switcho.className = 'o';
+        
         player.classList.remove("player1");
         player.classList.toggle("player2");
         event.target.textContent = "X";
       } else {
+        switcho.classList.remove('o');
+        switchx.className = 'x';
         player.classList.remove("player2");
         player.classList.toggle("player1");
         event.target.textContent = "O";
@@ -122,5 +117,5 @@ function myFunction(event) {
   checkWin();
 }
 
-main.addEventListener("click", myFunction);
+main.addEventListener("click", mainGame);
 button.addEventListener("click", restartGame);
